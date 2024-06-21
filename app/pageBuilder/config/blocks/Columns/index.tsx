@@ -1,15 +1,9 @@
 import React from "react";
 import { ComponentConfig } from "@measured/puck";
 import { Section } from "../../components/Section";
+import type { ColumnsProps } from "./ColumnsComponent";
 
-export type ColumnsProps = {
-  distribution: "auto" | "manual";
-  columns: {
-    span?: number;
-  }[];
-};
-
-export const Columns: ComponentConfig<ColumnsProps> = {
+export const ColumnsConfig: ComponentConfig<ColumnsProps> = {
   fields: {
     distribution: {
       type: "radio",
@@ -26,14 +20,14 @@ export const Columns: ComponentConfig<ColumnsProps> = {
     },
     columns: {
       type: "array",
-      getItemSummary: (col, id) =>  //@ts-ignore
-        `Column ${id + 1}, span ${col.span ? Math.max(Math.min(col.span, 12), 1) : "auto"
+      getItemSummary: (col, id) =>
+        `Column ${id ? id : -1 + 1}, span ${
+          col.span ? Math.max(Math.min(col.span, 12), 1) : "auto"
         }`,
       arrayFields: {
         span: {
           label: "Span (1-12)",
           type: "number",
-          //@ts-ignore
           min: 0,
           max: 12,
         },
@@ -44,7 +38,7 @@ export const Columns: ComponentConfig<ColumnsProps> = {
     distribution: "auto",
     columns: [{}, {}],
   },
-  render: ({ columns, distribution ,puck: { renderDropZone } }) => {
+  render: ({ columns, distribution, puck: { renderDropZone } }) => {
     return (
       <Section>
         <div
@@ -68,12 +62,10 @@ export const Columns: ComponentConfig<ColumnsProps> = {
                     : "",
               }}
             >
-
-              {renderDropZone({zone:`column-${idx}` ,disallow:["Hero", "Logos", "Stats"]})}
-              {/* <DropZone
-                zone={`column-${idx}`}
-                disallow={["Hero", "Logos", "Stats"]}
-              /> */}
+              {renderDropZone({
+                zone: `column-${idx}`,
+                disallow: ["Hero", "Logos", "Stats"],
+              })}
             </div>
           ))}
         </div>

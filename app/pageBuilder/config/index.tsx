@@ -1,24 +1,25 @@
-import { Config, ComponentConfig,Data } from "@measured/puck";
-import { ButtonGroup, ButtonGroupProps } from "./blocks/ButtonGroup";
-import { Card, CardProps } from "./blocks/Card";
-import { Columns, ColumnsProps } from "./blocks/Columns";
-import { Hero, HeroProps } from "./blocks/Hero";
-import { Heading,  } from "./blocks/Heading";
-import { Flex, FlexProps } from "./blocks/Flex";
-import { Logos, LogosProps } from "./blocks/Logos";
-import { Stats, StatsProps } from "./blocks/Stats";
-import { Text, TextProps } from "./blocks/Text";
+import { type Config, type Data } from "@measured/puck";
+import { ButtonGroupConfig } from "./blocks/ButtonGroup";
+import { CardConfig } from "./blocks/Card";
+import { ColumnsConfig } from "./blocks/Columns";
+import { HeroConfig } from "./blocks/Hero";
+import { HeadingConfig } from "./blocks/Heading";
+import { FlexConfig, FlexProps } from "./blocks/Flex";
+// import { Logos, LogosProps } from "./blocks/Logos";
+import { StatsConfig } from "./blocks/Stats";
+import { TextConfig } from "./blocks/Text";
 import { VerticalSpace, VerticalSpaceProps } from "./blocks/VerticalSpace";
 
 import Root, { RootProps } from "./components/root";
 import { HeadingProps } from "./blocks/Heading/HeadingComponent";
+import { HeroProps } from "./blocks/Blank";
+import { CardProps } from "./blocks/Card/CardComponent";
+import { ColumnsProps } from "./blocks/Columns/ColumnsComponent";
+import { StatsProps } from "./blocks/Stats/StatsComponent";
+import { TextProps } from "./blocks/Text/TextComponent";
+import { ButtonGroupProps } from "./blocks/ButtonGroup/ButtonGroupComponent";
 
 export type { RootProps } from "./components/root";
-
-const testComponent: ComponentConfig = {
-  render: () => <div>bla</div>
-
-}
 
 export type Props = {
   ButtonGroup: ButtonGroupProps;
@@ -27,7 +28,7 @@ export type Props = {
   Hero: HeroProps;
   Heading: HeadingProps;
   Flex: FlexProps;
-  Logos: LogosProps;
+  // Logos: LogosProps;
   Stats: StatsProps;
   Text: TextProps;
   VerticalSpace: VerticalSpaceProps;
@@ -39,18 +40,19 @@ export type UserConfig = Config<
   "layout" | "typography" | "interactive"
 >;
 
-export type PageBuilderData = Data<Props>
+export type PageBuilderData = Data<Props>;
 
-
-
-// We avoid the name config as next gets confused
-export const conf: UserConfig = {
-
+export const puckConfig: UserConfig = {
   root: {
     defaultProps: {
       title: "My Page",
+      children: undefined,
     },
-    render: ({ children, title, puck }) => <Root title={title || ''} puck={puck} >{children}</Root>,
+    render: ({ children, title, puck }) => (
+      <Root title={title || ""} puck={puck}>
+        {children}
+      </Root>
+    ),
   },
   categories: {
     layout: {
@@ -65,21 +67,17 @@ export const conf: UserConfig = {
     },
   },
   components: {
-    ButtonGroup,
-    Card,
-    Columns,
-    Hero,
-    Heading,
-    Flex,
-    Logos,
-    Stats,
-    Text,
-    VerticalSpace,
+    ButtonGroup: ButtonGroupConfig,
+    Card: CardConfig,
+    Columns: ColumnsConfig,
+    Hero: HeroConfig,
+    Heading: HeadingConfig,
+    Flex: FlexConfig,
+    // Logos,
+    Stats: StatsConfig,
+    Text: TextConfig,
+    VerticalSpace: VerticalSpace,
   },
-
 };
 
-export default conf;
-
-
-
+export default puckConfig;

@@ -3,6 +3,7 @@ import { ComponentConfig } from "@measured/puck";
 import styles from "./styles.module.css";
 import getClassNameFactory from "@/lib/get-class-name-factory";
 import { Section } from "../../components/Section";
+import FlexComponent from "./FlexComponent";
 
 const getClassName = getClassNameFactory("Flex", styles);
 
@@ -11,7 +12,7 @@ export type FlexProps = {
   minItemWidth: number;
 };
 
-export const Flex: ComponentConfig<FlexProps> = {
+export const FlexConfig: ComponentConfig<FlexProps> = {
   fields: {
     items: {
       type: "array",
@@ -36,7 +37,7 @@ export const Flex: ComponentConfig<FlexProps> = {
     items: [{}, {}],
     minItemWidth: 356,
   },
-  render: ({ items, minItemWidth, puck:{renderDropZone} }) => {
+  render: ({ items, minItemWidth, puck: { renderDropZone } }) => {
     return (
       <Section>
         <div className={getClassName()}>
@@ -46,10 +47,11 @@ export const Flex: ComponentConfig<FlexProps> = {
               className={getClassName("item")}
               style={{ minWidth: item.minItemWidth || minItemWidth }}
             >
-
-{renderDropZone({zone:`item-${idx}` ,disallow:["Hero", "Logos", "Stats"]})}
+              {renderDropZone({
+                zone: `item-${idx}`,
+                disallow: ["Hero", "Logos", "Stats"],
+              })}
               {/* <DropZone zone={`item-${idx}`} /> */}
-
             </div>
           ))}
         </div>

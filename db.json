@@ -39,13 +39,6 @@
                 }
             },
             {
-                "type": "VerticalSpace",
-                "props": {
-                    "size": "8px",
-                    "id": "VerticalSpace-1687284122744"
-                }
-            },
-            {
                 "type": "Text",
                 "props": {
                     "align": "center",
@@ -54,6 +47,13 @@
                     "size": "m",
                     "id": "Text-1687297621556",
                     "color": "muted"
+                }
+            },
+            {
+                "type": "VerticalSpace",
+                "props": {
+                    "size": "8px",
+                    "id": "VerticalSpace-1687284122744"
                 }
             },
             {

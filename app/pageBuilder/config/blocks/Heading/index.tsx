@@ -1,8 +1,6 @@
 import React from "react";
 import { ComponentConfig, AutoField } from "@measured/puck";
-import HeadingComponent ,{HeadingProps} from "./HeadingComponent";
-
-
+import HeadingComponent, { HeadingProps } from "./HeadingComponent";
 
 const sizeOptions = [
   { value: "xxxl", label: "XXXL" },
@@ -24,14 +22,9 @@ const levelOptions = [
   { label: "6", value: "6" },
 ];
 
-export const Heading: ComponentConfig<HeadingProps> = {
+export const HeadingConfig: ComponentConfig<HeadingProps> = {
   fields: {
     text: { type: "text" },
-    textb: {
-      type: 'custom', render: ({ onChange, value }) => {
-        return <AutoField field={{ type: 'text' }} onChange={onChange} value={value} />
-      }
-    },
     size: {
       type: "select",
       options: sizeOptions,
@@ -56,8 +49,7 @@ export const Heading: ComponentConfig<HeadingProps> = {
     padding: "24px",
     size: "m",
   },
-  render: ({ align, text, size, level, padding }) =>  <HeadingComponent {...{ align, text, size, level, padding}}/>,
+  render: ({ align, text, size, level, padding }) => (
+    <HeadingComponent {...{ align, text, size, level, padding }} />
+  ),
 };
-
-
-

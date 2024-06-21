@@ -13,7 +13,6 @@
 // import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 // import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 
-
 // import ExampleTheme from './ExampleTheme';
 // import ToolbarPlugin from './plugins/ToolbarPlugin/ToolbarPlugin';
 // import TreeViewPlugin from './plugins/TreeViewPlugin';
@@ -24,11 +23,9 @@
 //     return <div className="absolute top-4 left-2 select-none" >Enter some rich text...</div>;
 // }
 
-
 // export default function App({ data, onChange }: { onChange: (data: any) => {}, data: any }) {
 
 //     console.log({ hasData: !!data });
-
 
 //     const editorConfig = useMemo(() => {
 //         return {
@@ -42,9 +39,6 @@
 //             theme: ExampleTheme,
 //         } as InitialConfigType
 //     }, [])
-
-
-
 
 //     return (
 //         <LexicalComposer initialConfig={editorConfig}>
@@ -63,7 +57,6 @@
 //                         onChange(state.toJSON())
 //                     }} />
 
-
 //                 </div>
 //             </div>
 //         </LexicalComposer>
@@ -72,9 +65,7 @@
 
 // export const RenderRichText = ({ data }: { data: any }) => {
 
-
-
 //     return <div> <LexicalReactRenderer content={data} /> </div>
 // }
 
-export { }
+export {};

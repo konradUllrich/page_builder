@@ -1,9 +1,4 @@
-import { CSSProperties, ReactNode } from "react";
-import styles from "./styles.module.css";
-import getClassNameFactory from "@/lib/get-class-name-factory";
-import { cva } from "class-variance-authority";
-
-const getClassName = getClassNameFactory("Section", styles);
+import type { CSSProperties, ReactNode } from "react";
 
 export type SectionProps = {
   className?: string;
@@ -12,12 +7,6 @@ export type SectionProps = {
   maxWidth?: string;
   style?: CSSProperties;
 };
-
-const sectionVariants = cva('px-4', {
-  variants: {
-
-  }
-})
 
 export const Section = ({
   children,
@@ -28,14 +17,14 @@ export const Section = ({
 }: SectionProps) => {
   return (
     <div
-      className={`${getClassName()}${className ? ` ${className}` : ""}`}
+      className={`${`px-4`}${className ? ` ${className}` : ""}`}
       style={{
         ...style,
         paddingTop: padding,
         paddingBottom: padding,
       }}
     >
-      <div className={getClassName("inner")} style={{ maxWidth }}>
+      <div className={"mx-auto w-full"} style={{ maxWidth }}>
         {children}
       </div>
     </div>

@@ -1,13 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { ComponentConfig } from "@measured/puck";
-import styles from "./styles.module.css";
-import getClassNameFactory from "@/lib/get-class-name-factory";
-import { Section } from "../../components/Section";
+
 import dynamic from "next/dynamic";
 import dynamicIconImports from "lucide-react/dynamicIconImports";
-
-const getClassName = getClassNameFactory("Stats", styles);
+import StatsComponent, { StatsProps } from "./StatsComponent";
 
 const icons = Object.keys(dynamicIconImports).reduce((acc, iconName) => {
   //@ts-ignore
@@ -24,14 +21,7 @@ const iconOptions = Object.keys(dynamicIconImports).map((iconName) => ({
   value: iconName,
 }));
 
-export type StatsProps = {
-  items: {
-    title: string;
-    description: string;
-  }[];
-};
-
-export const Stats: ComponentConfig<StatsProps> = {
+export const StatsConfig: ComponentConfig<StatsProps> = {
   fields: {
     items: {
       type: "array",
@@ -54,18 +44,5 @@ export const Stats: ComponentConfig<StatsProps> = {
       },
     ],
   },
-  render: ({ items }) => {
-    return (
-      <Section className={getClassName()} maxWidth={"916px"}>
-        <div className={getClassName("items")}>
-          {items.map((item, i) => (
-            <div key={i} className={getClassName("item")}>
-              <div className={getClassName("label")}>{item.title}</div>
-              <div className={getClassName("value")}>{item.description}</div>
-            </div>
-          ))}
-        </div>
-      </Section>
-    );
-  },
+  render: ({ items }) => <StatsComponent {...{ items }} />,
 };

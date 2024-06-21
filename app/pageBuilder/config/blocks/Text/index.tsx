@@ -1,21 +1,10 @@
 import React from "react";
 
 import { ComponentConfig } from "@measured/puck";
-import { Section } from "../../components/Section";
-import { cva } from "class-variance-authority";
-import TextComponent from "./TextComponent";
 
-export type TextProps = {
-  align: "left" | "center" | "right";
-  text?: string;
-  padding?: string;
-  size?: "s" | "m";
-  color: "default" | "muted";
-  maxWidth?: string;
-};
+import TextComponent, { TextProps } from "./TextComponent";
 
-
-export const Text: ComponentConfig<TextProps> = {
+export const TextConfig: ComponentConfig<TextProps> = {
   fields: {
     text: { type: "textarea" },
     size: {
@@ -51,6 +40,8 @@ export const Text: ComponentConfig<TextProps> = {
     color: "default",
   },
   render: ({ align, color, text, size, padding, maxWidth }) => {
-   return <TextComponent {...{align, color, text, size, padding, maxWidth}}/>
+    return (
+      <TextComponent {...{ align, color, text, size, padding, maxWidth }} />
+    );
   },
 };

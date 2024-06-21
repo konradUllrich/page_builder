@@ -78,16 +78,7 @@ const Footer = ({ children }: { children: ReactNode }) => {
           color: "var(--puck-color-grey-03)",
           background: "var(--puck-color-grey-11)",
         }}
-      >
-        Made by{" "}
-        <a
-          href="https://measured.co"
-          target="_blank"
-          style={{ color: "inherit", textDecoration: "none", fontWeight: 600 }}
-        >
-          Measured
-        </a>
-      </div>
+      ></div>
     </footer>
   );
 };

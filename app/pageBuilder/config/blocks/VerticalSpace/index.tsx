@@ -2,13 +2,13 @@ import React from "react";
 
 import { ComponentConfig } from "@measured/puck";
 import { spacingOptions } from "../../options";
+import VerticalSpaceComponent from "./VerticalSpaceComponent";
 
 export type VerticalSpaceProps = {
   size: string;
 };
 
 export const VerticalSpace: ComponentConfig<VerticalSpaceProps> = {
-  //@ts-ignore
   label: "Vertical Space",
   fields: {
     size: {
@@ -19,7 +19,5 @@ export const VerticalSpace: ComponentConfig<VerticalSpaceProps> = {
   defaultProps: {
     size: "24px",
   },
-  render: ({ size }) => {
-    return <div style={{ height: size, width: "100%" }} />;
-  },
+  render: ({ size }) => <VerticalSpaceComponent {...{ size }} />,
 };

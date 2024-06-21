@@ -11,22 +11,29 @@ import clsx from "clsx";
 // }, {});
 
 export type CardProps = {
-    title: string;
-    description: string;
-    icon?: "Feather";
-    mode: "flat" | "card";
+  title: string;
+  description: string;
+  icon?: "Feather";
+  mode: "flat" | "card";
 };
-const CardComponent: React.FunctionComponent<CardProps> = (props) => {
 
-    const { title, icon, description, mode } = props
-    return <div className={clsx('flex flex-col mx-auto gap-4 w-full', { 'shadow-lg p-6': mode === 'card', 'items-center': mode !== 'card' })}>
-        {/* <div className={' bg-primary-200 text-primary-500 rounded-full flex justify-center items-center w-16 h-16'}>{
+const CardComponent = (props: CardProps) => {
+  const { title, icon, description, mode } = props;
+  return (
+    <div
+      className={clsx("flex flex-col mx-auto gap-4 w-full", {
+        "shadow-lg p-6": mode === "card",
+        "items-center": mode !== "card",
+      })}
+    >
+      {/* <div className={' bg-primary-200 text-primary-500 rounded-full flex justify-center items-center w-16 h-16'}>{
             //@ts-ignore
             icons[icon]}
             </div> */}
-        <div className='text-lg'>{title}</div>
-        <div className=''>{description}</div>
+      <div className="text-lg">{title}</div>
+      <div className="">{description}</div>
     </div>
-}
+  );
+};
 
-export default CardComponent
+export default CardComponent;

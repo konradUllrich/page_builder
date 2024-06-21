@@ -1,15 +1,10 @@
-
 import React from "react";
 import { ComponentConfig } from "@measured/puck";
-import ButtonGroupComponent from "./ButtonGroupComponent";
+import ButtonGroupComponent, {
+  type ButtonGroupProps,
+} from "./ButtonGroupComponent";
 
-export type ButtonGroupProps = {
-  align?: 'left' | 'center';
-  buttons: { label: string; href: string; variant: "default" | "secondary" }[];
-};
-
-export const ButtonGroup: ComponentConfig<ButtonGroupProps> = {
-  //@ts-ignore
+export const ButtonGroupConfig: ComponentConfig<ButtonGroupProps> = {
   label: "Button Group",
   fields: {
     buttons: {
@@ -17,7 +12,7 @@ export const ButtonGroup: ComponentConfig<ButtonGroupProps> = {
       getItemSummary: (item) => item.label || "Button",
       arrayFields: {
         label: { type: "text" },
-        href: { type: "text", },
+        href: { type: "text" },
         variant: {
           type: "radio",
           options: [
@@ -30,7 +25,6 @@ export const ButtonGroup: ComponentConfig<ButtonGroupProps> = {
         label: "Button",
         href: "#",
         variant: "default",
-
       },
     },
     align: {
@@ -45,6 +39,6 @@ export const ButtonGroup: ComponentConfig<ButtonGroupProps> = {
     buttons: [{ label: "Learn more", href: "#", variant: "default" }],
   },
   render: ({ align, buttons }) => {
-    return <ButtonGroupComponent align={align} buttons={buttons} />
+    return <ButtonGroupComponent align={align} buttons={buttons} />;
   },
 };

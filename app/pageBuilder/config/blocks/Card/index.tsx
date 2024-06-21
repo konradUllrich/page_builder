@@ -2,21 +2,14 @@
 import React from "react";
 import { ComponentConfig } from "@measured/puck";
 import dynamicIconImports from "lucide-react/dynamicIconImports";
-import CardComponent from "./CardComponent";
+import CardComponent, { CardProps } from "./CardComponent";
 
 const iconOptions = Object.keys(dynamicIconImports).map((iconName) => ({
   label: iconName,
   value: iconName,
 }));
 
-export type CardProps = {
-  title: string;
-  description: string;
-  icon?: "Feather";
-  mode: "flat" | "card";
-};
-
-export const Card: ComponentConfig<CardProps> = {
+export const CardConfig: ComponentConfig<CardProps> = {
   fields: {
     title: { type: "text" },
     description: { type: "textarea" },
@@ -38,5 +31,7 @@ export const Card: ComponentConfig<CardProps> = {
     icon: "Feather",
     mode: "flat",
   },
-  render: ({ title, icon, description, mode }) => <CardComponent {...{ title, icon, description, mode }} />
+  render: ({ title, icon, description, mode }) => (
+    <CardComponent {...{ title, icon, description, mode }} />
+  ),
 };

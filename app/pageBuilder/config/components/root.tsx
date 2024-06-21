@@ -5,13 +5,12 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 
 export type RootProps = {
-  children: ReactNode;
+  children?: ReactNode;
   title: string;
 } & DefaultRootProps;
 
 function Root(props: RootProps) {
-
-  const { children } = props
+  const { children } = props;
   return (
     <>
       <Header editMode={true} />
