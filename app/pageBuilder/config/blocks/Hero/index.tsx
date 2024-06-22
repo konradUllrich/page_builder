@@ -1,9 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { ComponentConfig } from "@measured/puck";
 
 import { quotes } from "./quotes";
-import HeroComponent, { HeroProps } from "./HeroComponent";
+import HeroComponent, { type HeroProps } from "./HeroComponent";
 
 export const HeroConfig: ComponentConfig<HeroProps> = {
   fields: {
@@ -107,7 +106,6 @@ export const HeroConfig: ComponentConfig<HeroProps> = {
     buttons: [{ label: "Learn more", href: "#" }],
     padding: "64px",
   },
-
   resolveData: async ({ props }, { changed }) => {
     if (!props.quote)
       return { props, readOnly: { title: false, description: false } };
@@ -125,20 +123,15 @@ export const HeroConfig: ComponentConfig<HeroProps> = {
       readOnly: { title: true, description: true },
     };
   },
-  //@ts-ignore
+
   resolveFields: async (data, { fields }) => {
     if (data.props.align === "center") {
       return {
         ...fields,
-        image: undefined,
       };
     }
 
     return fields;
   },
-  render: ({ align, title, description, buttons, padding, image }) => (
-    <HeroComponent
-      {...{ align, title, description, buttons, padding, image }}
-    />
-  ),
+  render: ({ puck, id, ...rest }) => <HeroComponent {...rest} />,
 };

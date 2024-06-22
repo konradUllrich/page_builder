@@ -12,12 +12,14 @@ import { VerticalSpace, VerticalSpaceProps } from "./blocks/VerticalSpace";
 
 import Root, { RootProps } from "./components/root";
 import { HeadingProps } from "./blocks/Heading/HeadingComponent";
-import { HeroProps } from "./blocks/Blank";
+import { HeroProps } from "./blocks/Hero/HeroComponent";
 import { CardProps } from "./blocks/Card/CardComponent";
 import { ColumnsProps } from "./blocks/Columns/ColumnsComponent";
 import { StatsProps } from "./blocks/Stats/StatsComponent";
 import { TextProps } from "./blocks/Text/TextComponent";
 import { ButtonGroupProps } from "./blocks/ButtonGroup/ButtonGroupComponent";
+import ImageComponent, { ImageProps } from "./blocks/Image/ImageComponent";
+import { ImageConfig } from "./blocks/Image";
 
 export type { RootProps } from "./components/root";
 
@@ -32,15 +34,15 @@ export type Props = {
   Stats: StatsProps;
   Text: TextProps;
   VerticalSpace: VerticalSpaceProps;
+  Image: ImageProps;
 };
 
+export type PageBuilderData = Data<Props>;
 export type UserConfig = Config<
   Props,
   RootProps,
   "layout" | "typography" | "interactive"
 >;
-
-export type PageBuilderData = Data<Props>;
 
 export const puckConfig: UserConfig = {
   root: {
@@ -73,6 +75,7 @@ export const puckConfig: UserConfig = {
     Hero: HeroConfig,
     Heading: HeadingConfig,
     Flex: FlexConfig,
+    Image: ImageConfig,
     // Logos,
     Stats: StatsConfig,
     Text: TextConfig,

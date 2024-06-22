@@ -27,8 +27,7 @@ const HeroComponent = ({
   buttons,
   padding,
   image,
-  isEditing,
-}: HeroProps & { isEditing?: boolean }) => {
+}: HeroProps) => {
   return (
     <Section
       padding={padding}

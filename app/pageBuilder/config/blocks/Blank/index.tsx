@@ -1,13 +1,12 @@
 import React from "react";
 import { ComponentConfig } from "@measured/puck";
 
+export type BlankProps = {};
 
-export type HeroProps = {};
-
-export const Hero: ComponentConfig<HeroProps> = {
+export const Hero: ComponentConfig<BlankProps> = {
   fields: {},
   defaultProps: {},
   render: () => {
-    return <div className=''></div>;
+    return <div className=""></div>;
   },
 };

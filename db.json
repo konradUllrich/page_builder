@@ -25,10 +25,6 @@
                     },
                     "padding": "128px",
                     "align": "left"
-                },
-                "readOnly": {
-                    "title": false,
-                    "description": false
                 }
             },
             {
@@ -36,24 +32,6 @@
                 "props": {
                     "size": "96px",
                     "id": "VerticalSpace-1687298109536"
-                }
-            },
-            {
-                "type": "Text",
-                "props": {
-                    "align": "center",
-                    "text": "Configure Puck with your own components to make change for your marketing pages without a developer.",
-                    "padding": "0px",
-                    "size": "m",
-                    "id": "Text-1687297621556",
-                    "color": "muted"
-                }
-            },
-            {
-                "type": "VerticalSpace",
-                "props": {
-                    "size": "8px",
-                    "id": "VerticalSpace-1687284122744"
                 }
             },
             {
@@ -65,6 +43,24 @@
                     "padding": "0px",
                     "size": "xxl",
                     "id": "Heading-1687297593514"
+                }
+            },
+            {
+                "type": "VerticalSpace",
+                "props": {
+                    "size": "8px",
+                    "id": "VerticalSpace-1687284122744"
+                }
+            },
+            {
+                "type": "Text",
+                "props": {
+                    "align": "center",
+                    "text": "Configure Puck with your own components to make change for your marketing pages without a developer.",
+                    "padding": "0px",
+                    "size": "m",
+                    "id": "Text-1687297621556",
+                    "color": "muted"
                 }
             },
             {
@@ -423,32 +419,27 @@
         }
     },
     "pricing": {
+        "content": [],
+        "root": {
+            "props": {
+                "title": "Pricing"
+            }
+        }
+    },
+    "about": {
         "content": [
             {
-                "type": "Heading",
+                "type": "Image",
                 "props": {
-                    "align": "left",
-                    "text": "Heading ffff",
-                    "padding": "24px",
-                    "size": "m",
-                    "id": "Heading-5eb908b6-c673-4b98-b0b4-20564104dd6b",
-                    "textb": "dfdfdf"
+                    "id": "Image-ede7630b-d6a4-4a4b-9b93-015cf729c84d"
                 }
             }
         ],
         "root": {
             "props": {
-                "title": "Pricing"
+                "title": "About Us"
             }
         },
         "zones": {}
-    },
-    "about": {
-        "content": [],
-        "root": {
-            "props": {
-                "title": "About Us"
-            }
-        }
     }
 }

@@ -24,14 +24,17 @@ const NavItem = ({ label, href }: { label: string; href: string }) => {
 };
 
 const Header = ({ editMode }: { editMode: boolean }) => (
-  <header className="flex items-center mx-auto max-w-7xl fixed top-0 left-0 right-0 z-10 bg-white h-20">
-    <div className={"text-2xl font-extrabold"}>LOGO</div>
-    <nav className={"flex gap-6 ml-auto"}>
-      <NavItem label="Home" href={`${editMode ? "" : "/"}`} />
-      <NavItem label="Pricing" href={editMode ? "" : "/pricing"} />
-      <NavItem label="About" href={editMode ? "" : "/about"} />
-    </nav>
-  </header>
+  <>
+    <header className="flex items-center mx-auto max-w-7xl fixed top-0 left-0 right-0 z-10 bg-white h-20">
+      <div className={"text-2xl font-extrabold"}>LOGO</div>
+      <nav className={"flex gap-6 ml-auto"}>
+        <NavItem label="Home" href={`${editMode ? "" : "/"}`} />
+        <NavItem label="Pricing" href={editMode ? "" : "/pricing"} />
+        <NavItem label="About" href={editMode ? "" : "/about"} />
+      </nav>
+    </header>
+    <div className=" h-20 "></div>
+  </>
 );
 
 export { Header };
